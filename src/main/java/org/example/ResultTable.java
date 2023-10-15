@@ -15,9 +15,14 @@ public class ResultTable {
         }
     }
 
-    public int getVal(int key){
+    public String getVal(){
         synchronized (result){
-            return result.get(key);
+            String total="";
+            for (Integer value : result.values()) {
+                String val = value.toString();
+                total+=val;
+            }
+            return total;
         }
     }
 }

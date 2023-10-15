@@ -13,7 +13,6 @@ public class WorkerThread extends Thread {
         while(!taskqueue.isEmpty()){
             Task task = taskqueue.dequeue();
             int result = computePiDigit(task.digit);
-            System.out.print(result);
             table.add(task.digit, result);
         }
     }
@@ -21,9 +20,12 @@ public class WorkerThread extends Thread {
         Bpp bpp = new Bpp();
         int number = bpp.getDecimal(position);
         String numberStr = Integer.toString(number);
-        char firstDigit = numberStr.charAt(0);
-
-        return Character.getNumericValue(firstDigit);
+        if(numberStr.length() <9){
+            return 0;
+        }else{
+            char firstDigit = numberStr.charAt(0);
+            return Character.getNumericValue(firstDigit);
+        }
     }
 }
 class Bpp{

@@ -15,15 +15,15 @@ public class TaskQueue {
 
     private void prepopulate(){
         ArrayList<Integer> randomTime = randomize();
-        for(int i = 0; i< 1000; i++){
+        for(int i = 1; i<=1000; i++){
             Task task = new Task(i, randomTime.get(i));
             enqueue(task);
         }
     }
 
     private ArrayList<Integer> randomize(){
-        ArrayList<Integer> randomTime = new ArrayList<Integer>(1000);
-        for(int i = 0; i< 1000; i++){
+        ArrayList<Integer> randomTime = new ArrayList<Integer>(1002);
+        for(int i = 1; i<= 1001; i++){
             randomTime.add(i);
         }
         shuffle(randomTime);
