@@ -7,6 +7,8 @@ import static java.util.Collections.shuffle;
 
 public class TaskQueue {
     private LinkedList<Task> taskQueue;
+    private int numDigits;
+    private int numDots;
 
     public TaskQueue(){
         this.taskQueue = new LinkedList<Task>();
@@ -38,6 +40,17 @@ public class TaskQueue {
 
     public synchronized Task dequeue(){
         if(!taskQueue.isEmpty()){
+            if(numDigits<9){
+                numDigits++;
+            }else{
+                System.out.print(".");
+                numDigits=0;
+                numDots++;
+            }
+            if(numDots>19){
+                System.out.println();
+                numDots=0;
+            }
             return taskQueue.removeFirst();
         } else {
             return null;
